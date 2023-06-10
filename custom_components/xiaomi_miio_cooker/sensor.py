@@ -68,8 +68,7 @@ class XiaomiCookerSensor(Entity):
             "{}_{}".format(COOKER_DOMAIN, slugify(self._name))
         )
 
-    @asyncio.coroutine
-    def async_added_to_hass(self):
+    async def async_added_to_hass(self):
         """Register callbacks."""
         self.hass.helpers.dispatcher.async_dispatcher_connect(
             "{}_updated".format(COOKER_DOMAIN), self.async_update_callback
